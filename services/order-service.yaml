@@ -30,3 +30,7 @@ gcp:
     id: eca-project-2026
   credentials:
     file: gcp-credentials.json
+
+local:
+  storage:
+    base-path: ./receipts
