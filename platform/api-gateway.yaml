@@ -21,10 +21,10 @@ spring:
               predicates:
                 - Path=/api/v1/orders/**
 
-            - id: program-service
-              uri: lb://PROGRAM-SERVICE
+            - id: product-service
+              uri: lb://PORDUCT-SERVICE
               predicates:
-                - Path=/api/v1/programs/**
+                - Path=/api/v1/products/**
 
           default-filters:
             - PreserveHostHeader
