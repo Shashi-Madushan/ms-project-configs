@@ -10,7 +10,7 @@ spring:
               predicates:
                 - Path=/api/v1/customers/**
 
-            - id: user-service
+            - id: iam-service
               uri: lb://IAM-SERVICE
               predicates:
                 - Path=/api/v1/users/**
