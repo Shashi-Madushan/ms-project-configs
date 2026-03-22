@@ -5,13 +5,13 @@ spring:
       server:
         webflux:
           routes:
-            - id: customer-service
-              uri: lb://CUSTOMER-SERVICE
+            - id: iam-service
+              uri: lb://IAM-SERVICE
               predicates:
                 - Path=/api/v1/customers/**
 
             - id: user-service
-              uri: lb://CUSTOMER-SERVICE
+              uri: lb://IAM-SERVICE
               predicates:
                 - Path=/api/v1/users/**
 
