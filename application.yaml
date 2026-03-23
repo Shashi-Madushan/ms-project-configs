@@ -1,0 +1,19 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://vm-node-a.platform:9001/eureka/,http://vm-node-b.platform:9001/eureka/,http://vm-node-c.platform:9001/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    lk.ijse.eca: INFO
+    org.springframework.web: INFO
+    org.hibernate.SQL: WARN
+    org.springframework.cloud.gateway: INFO
+    org.springframework.cloud.netflix.eureka: INFO
+    lk.ijse.eca.gateway: INFO

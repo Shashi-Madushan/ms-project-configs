@@ -1,0 +1,16 @@
+spring:
+  mvc:
+    problemdetails:
+      enabled: true
+
+  mongodb:
+    host: localhost
+    port: 27017
+    database: eca
+
+server:
+  port: 0
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}

@@ -1,0 +1,46 @@
+spring:
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: iam-service
+              uri: lb://IAM-SERVICE
+              predicates:
+                - Path=/api/v1/customers/**
+
+            - id: iam-service
+              uri: lb://IAM-SERVICE
+              predicates:
+                - Path=/api/v1/users/**
+
+            - id: order-service
+              uri: lb://ORDER-SERVICE
+              predicates:
+                - Path=/api/v1/orders/**
+
+
+            - id: product-service
+              uri: lb://PRODUCT-SERVICE
+              predicates:
+                - Path=/api/v1/products/**
+
+          default-filters:
+            - PreserveHostHeader
+
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins: "*"
+                allowed-methods: "*"
+                allowed-headers: "*"
+
+server:
+  port: 7001
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web.reactive: DEBUG
+    lk.ijse.eca.gateway: DEBUG
