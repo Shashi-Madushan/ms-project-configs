@@ -4,7 +4,7 @@ spring:
       enabled: true
 
   mongodb:
-    uri: mongodb://localhost:27017/eca
+    uri: mongodb://service-user-firestore:JdIuAEmseraeTBNgmV7B5OJLH-MgXUvGb8Z3ji_NQ-blHuM9@ad809df3-9640-466a-9ed2-f5b0fffeeb72.asia-southeast1.firestore.goog:443/eca-mongo-db?loadBalanced=true&tls=true&authMechanism=SCRAM-SHA-256&retryWrites=false
 
 server:
   port: 0
@@ -12,3 +12,20 @@ server:
 eureka:
   instance:
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+
+servlet:
+  multipart:
+    enabled: true
+    max-file-size: 10MB
+    max-request-size: 100MB
+
+app:
+  storage:
+    type: local  # local for dev, gcs for production
+    local-path: ./uploads/products
+    base-url: /api/v1/products/images
+    cloud:
+      provider: gcs
+      bucket-name: ${GCS_BUCKET_NAME:}
+      project-id: ${GCS_PROJECT_ID:}
+      region: us-central1
