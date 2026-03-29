@@ -22,7 +22,7 @@ spring:
                 - Path=/api/v1/orders/**
 
             - id: product-service
-              uri: lb://PORDUCT-SERVICE
+              uri: lb://PRODUCT-SERVICE
               predicates:
                 - Path=/api/v1/products/**
 
@@ -37,7 +37,7 @@ spring:
                 allowed-headers: "*"
 
 server:
-  port: 7001
+  port: 7000
 
 logging:
   level:
